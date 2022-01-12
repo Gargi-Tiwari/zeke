@@ -31,7 +31,7 @@ const NavBar = () => {
             className={'py-2 px-7 mx-4 rounded-full cursor-pointer white-glassmorphism hover:'}
           >
             LOGIN
-            
+            {/* <LoginMoralis  onClick={`${<Todo/>}`}/> */}
           </button>
           
           <button className="" logoutOnPress={'/'}>

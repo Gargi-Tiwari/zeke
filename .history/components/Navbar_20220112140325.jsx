@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
 
+import { Login } from "../pages/Login";
+import logo from "../assets/logo.png";
 
 const NavbarItem = ({ title, classProps }) => {
   return <li className={`mx-4 cursor-pointer${classProps}`}>{title}</li>;
 };
 
 const NavBar = () => {
-  
+  // const { authenticate } = useMoralis();
   const [toggleMenu, setToggleMenu] = useState(false);
   return (
     <div className="">
@@ -27,14 +29,14 @@ const NavBar = () => {
           <NavbarItem title="Wallets" classProps=" " />
 
           <button
-          
+            // onClick={authenticate}
             className={'py-2 px-7 mx-4 rounded-full cursor-pointer white-glassmorphism hover:'}
           >
             LOGIN
-            
+            {/* <LoginMoralis  onClick={`${<Todo/>}`}/> */}
           </button>
-          
-          <button className="" logoutOnPress={'/'}>
+          <Onecdot />
+          <button className="" logoutOnPress={`${(<Main />)}`}>
             <span className="py-2 px-7 mx-4 rounded-full cursor-pointer white-glassmorphism">Logout</span>
           </button>
         </ul>
@@ -74,7 +76,7 @@ const NavBar = () => {
               </li>
               <li className="text-xl w-full my-2"></li>
               <li className="py-2 px-7 mx-4 rounded-full cursor-pointer">
-                <button className="py-2 px-7 mx-4 rounded-full cursor-pointer">
+                <button className="py-2 px-7 mx-4 rounded-full cursor-pointer" logoutOnPress={`${(<Main />)}`}>
                   <span className=" py-2 px-7 mx-4 rounded-full cursor-pointer white-glassmorphism ">Logout</span>
                 </button>
               </li>
