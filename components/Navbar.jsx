@@ -1,89 +1,65 @@
-import React, { useState } from "react";
-import { HiMenuAlt4 } from "react-icons/hi";
-import { AiOutlineClose } from "react-icons/ai";
-
-
-const NavbarItem = ({ title, classProps }) => {
-  return <li className={`mx-4 cursor-pointer${classProps}`}>{title}</li>;
-};
-
-const NavBar = () => {
-  
-  const [toggleMenu, setToggleMenu] = useState(false);
+import React from "react";
+import {search} from "../Assets/search.svg"
+import SearchIcon from '@material-ui/icons/Search';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
+import { Link } from 'react-router-dom'
+const Navbar = () => {
   return (
-    <div className="">
-      <nav className="w-full flex md:justify-center justify-between items-center p-4">
-        <div className="md:flex-[0.5] flex-initial justify-center items-center">
-          <div className="flex flex-row items-center text-center flex-1  ">
+    <div className="gradient-bg-welcome">
+      <div className="text-white h-44 flex justify-between items-center ">
+           
             <div className="border-2">
               <span className="flex flex-row items-center flex-1 text-center">
                 <h1 className="text-3xl text-white text-x-bold  p-3 ">Z | </h1>
-                <h3 className="text-white px-2"> Z E K E</h3>
+                <h3 className="text-white px-2">Z E K E</h3>
               </span>
             </div>
-          </div>
-        </div>
-        <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
-          <NavbarItem title="Wallets" classProps=" " />
 
-          <button
-          
-            className={'py-2 px-7 mx-4 rounded-full cursor-pointer white-glassmorphism hover:'}
-          >
-            LOGIN
             
-          </button>
-          
-          <button className="" logoutOnPress={'/'}>
-            <span className="py-2 px-7 mx-4 rounded-full cursor-pointer white-glassmorphism">Logout</span>
-          </button>
-        </ul>
-        <div className="flex relative">
-          {toggleMenu ? (
-            <AiOutlineClose
-              fontSize={28}
-              className="text-white md:hidden cursor-pointer"
-              onClick={() => setToggleMenu(false)}
-            />
-          ) : (
-            <HiMenuAlt4
-              fontSize={28}
-              className="text-white md:hidden cursor-pointer"
-              onClick={() => setToggleMenu(true)}
-            />
-          )}
-          {toggleMenu && (
-            <ul
-              className="z-10 fixed top-0 -right-2 p-3 w-[40vw] h-screen shadow-2xl md:hidden list-none
-                        flex flex-col justify-start items-end rounded-md blue-glassmorphism text-white animate-slide-in"
-            >
-              <li className="text-xl w-full my-2">
-                <AiOutlineClose onClick={() => setToggleMenu(false)} />
-              </li>
-              <li className="text-xl w-full my-2">
-                <NavbarItem title="Wallets" className='py-2 px-7 mx-4 rounded-full cursor-pointer white-glassmorphism' classProps=" " />
-              </li>
-              <li className="text-xl w-full my-2">
-                <button
+            <div className={`blue-glassmorphism h-12 flex-1 flex items-center p-2 rounded-full`}>
+                <div className="  w-10 h-10 text-white justify-center items-center p-3 ">
+                  <SearchIcon className="text-white " />
+                    
+                </div>
+                <input
+                    type="text"
+                    placeholder="Collections, item or users... "
+                    className="bg-transparent border-none w-full text-[#eee] p-3 font-medium" />
+            </div>
+            <div className='flex justify-evenly'>
+                {/* <Link to={!user && '/Signin'}> */}
+                <div 
+                // onClick={handleAuthentication} 
+                className='flex flex-col mr-2.5 ml-2.5 text-white '>
+                    <span className='text-sm '>Hello,Guest
+                     {/* {!user ? 'Guest': user.email}  */}
+                     </span>
+                    <span className='text-lg font-bold'>signin
+                      {/* {user ? 'Sign Out': 'SignIn'} */}
+                      </span>
+                </div>
+                {/* </Link> */}
+                {/* <Link to ='/orders'> */}
+                <div className='flex flex-col mr-2.5 ml-2.5 text-white'>
+                    <span className='text-sm'>Returns</span>
+                    <span className='text-lg font-bold'>& Orders</span>
+                </div>
+                {/* </Link> */}
+
                 
-                  className=" py-2 px-7 mx-4 rounded-full cursor-pointer white-glassmorphism"
-                >
-                  LOGIN
                 
-                </button>
-              </li>
-              <li className="text-xl w-full my-2"></li>
-              <li className="py-2 px-7 mx-4 rounded-full cursor-pointer">
-                <button className="py-2 px-7 mx-4 rounded-full cursor-pointer">
-                  <span className=" py-2 px-7 mx-4 rounded-full cursor-pointer white-glassmorphism ">Logout</span>
-                </button>
-              </li>
-            </ul>
-          )}
+                {/* <Link to="/checkout"> */}
+                  <div className='flex items-center mr-2 text-white'>
+                    <ShoppingCartIcon />
+                     <span className='text-lg font-bold '>
+                        {/* {basket?.length} */} 0
+                     </span>
+                  </div>
+                {/* </Link> */}
+            </div>
         </div>
-      </nav>
     </div>
   );
 };
 
-export default NavBar;
+export default Navbar;
