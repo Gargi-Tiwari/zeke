@@ -5,8 +5,8 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 import { Link } from 'react-router-dom'
 const Navbar = () => {
   return (
-    <div className="gradient-bg-welcome">
-      <div className="text-white h-44 flex justify-between items-center ">
+    <div className=" sticky  ">
+      <div className="text-white pt-5 pb-3 sticky flex justify-between items-center ">
            
             <div className="border-2">
               <span className="flex flex-row items-center flex-1 text-center">
@@ -56,6 +56,9 @@ const Navbar = () => {
                      </span>
                   </div>
                 {/* </Link> */}
+                <div className='flex items-center mr-2 text-white'>
+                    <span><button className="p-2 capitalize blue-glassmorphism">connect<br/> metamask</button></span>
+                  </div>
             </div>
         </div>
     </div>
